@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style type="text/css">
+        .center
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+        </style>
+        <script>
+            $(document).ready(function (){
+            validate();
+              $('#file1, #file2').change(validate);
+        });
+
+        function validate(){
+            if ($('#file1').val().length   >   0   &&
+            $('#file2').val().length  >   0  ) {
+            $("input[type=submit]").prop("disabled", false);
+        }
+        else {
+          $("input[type=submit]").prop("disabled", true);
+         }
+        }
+        </script>     
+</head>
+
+<body>
+    <form action="" method="post" id="newForm"  enctype="multipart/form-data" > 
+      <div class="center">
+       <div >
+        Upload File  <input type="file" name=file1 class="upload" accept=".csv" required>
+       </div>
+      <div>
+        Upload File  <input type="file" name=file2 class="upload" accept=".csv" required>
+     </div>
+      <div style="align-items:center;">
+        <input type="submit" id="submit" class="upload" accept=".csv">
+     </div>
+    </form>
+</body>
+
+</html>

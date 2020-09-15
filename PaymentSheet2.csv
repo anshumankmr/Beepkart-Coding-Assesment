@@ -1,0 +1,6 @@
+OrderNum,Sale Amount,Cost Price,Transferred Amount,Commission,Payment Gateway,PickPack Fee
+B1,150,50,100,20,20,10
+B2,150,100,70,30,30,20
+B3,150,50,110,20,10,10
+B4,150,100,80,20,20,20
+B5,150,50,120,10,10,10
