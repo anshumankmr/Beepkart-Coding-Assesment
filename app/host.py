@@ -10,12 +10,10 @@ CODE FOR THE FIRST PAGE UPLOAD.HTML
 """
 @app.route('/', methods = ['GET'])
 def upload_file():
-    print("sdsd")
     return render_template('upload.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST'])#POST Request is sent if both files are uploaded
 def saveFile():
-    print('sds')
     try:
         print(request.files)
         file1 = request.files["file1"]#('file1', None)
@@ -26,7 +24,7 @@ def saveFile():
             file2.save(file2.filename)
             df1 = pd.read_csv(file1.filename)
             df2 = pd.read_csv(file2.filename)
-            df1 =  df1.append(df2,ignore_index = False)
+            df1 =  df1.append(df2,ignore_index = False)#concatenate the two dataframe
             df = pd.DataFrame()
             df["Total"] = df1['PickPack Fee'] +  df1['Payment Gateway'] + df1['Commission']
             df["Profit"] =(df1["Sale Amount"] - df1["Cost Price"] - df["Total"])/(df1["Cost Price"] + df["Total"])*100
@@ -35,6 +33,5 @@ def saveFile():
             
         return redirect(url_for('upload_file'))
     except Exception as e:
-        print(e)
         return str(e)
  
